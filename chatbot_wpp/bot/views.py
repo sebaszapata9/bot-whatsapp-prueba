@@ -86,7 +86,7 @@ def manejar_flujo_negocio(telefono, texto):
             sesion.estado_actual = 'ESPERANDO_CODIGO_PRODUCTO'
             sesion.save()
             return (
-                "📄 Aquí tienes nuestro catálogo: https://n9.cl/23ad6\n\n"
+                "📄 Aquí tienes nuestro catálogo: https://tinyurl.com/catalogo-iron\n\n"
                 "Por favor, escribe el *CÓDIGO* del producto que deseas (Ej: P01)."
             )
         elif texto == '2':
