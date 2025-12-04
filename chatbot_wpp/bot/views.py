@@ -3,13 +3,12 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Producto, Pedido, SesionUsuario, LogMensaje
 import json
 import requests
+import os
 
-# --- TUS CREDENCIALES (ACTUALÍZALAS AQUÍ DIRECTAMENTE) ---
-# El token largo que empieza con EAA... (Cópialo fresco de la web de Meta)
-ACCESS_TOKEN = "EAAbAfREZAMjQBQNgKXuR6VmsqCGBUSoAk6f8Ynb6xcypZAitlmr4adx3OSVZCVweSzXtNbqEDfeZCnHcjSvuFqiZCwQlIlgQ8JQk7Xsulp8Xsal57Gfv9v9S0j9dtEQ9ulwWTqksae2cK41UTN0gS70yZA90ZBD9tP7CZCTzCoiJLyQ4iTELcriKsgZBsWIFGvQ42OlHdbAJsbz9BSOwFq0MDvGA3iNoC8XFAksN7rxaQSqePoZAblGAZCmHnSt2LZConMrEus2ffB4oZBA7O4jUI6ZC1a" 
-
-# El ID de teléfono (Phone Number ID)
-PHONE_NUMBER_ID = "872156939317475" 
+# Ya no escribimos el token aquí. Le decimos al código:
+# "Busca una variable llamada META_ACCESS_TOKEN en el servidor"
+ACCESS_TOKEN = os.environ.get('META_ACCESS_TOKEN') 
+PHONE_NUMBER_ID = os.environ.get('META_PHONE_ID')
 # ---------------------------------------------------------
 
 @csrf_exempt

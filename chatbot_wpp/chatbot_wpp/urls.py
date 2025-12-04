@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+# Una vista simple para la página de inicio
+def home(request):
+    return HttpResponse("🤖 El Bot de IronSnacks está ACTIVO y funcionando.")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bot/',include('bot.urls')), # Redirigimos todo lo que venga de /bot/ a nuestra app bot
-	
+    path('bot/',include('bot.urls')),
+    path('', home), # <--- Agrega esta ruta vacía al final
 ]
